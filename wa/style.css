@@ -73,6 +73,7 @@ h2 {
 }
 
 /* Styles for elly card */
+
 .elly {
     background-color: lightskyblue;
     border: 0.2em solid black;
@@ -104,14 +105,16 @@ h2 {
     float: right;
 }
 
-.blue-card h2 {
+.elly h2 {
     font-size: 2em;
     line-height: 1.5em;
-    color: white; 
-    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    color: black; 
+    font-family: 'Comic Sans MS', cursive, sans-serif;;
+
   }
   
-  .blue-card footer p {
+  .elly footer p {
     font-size: 1.5em;
     line-height: 1.5em;
+    font-family: 'Comic Sans MS', cursive, sans-serif;;
   }
