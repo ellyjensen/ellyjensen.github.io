@@ -10,14 +10,9 @@ body {
     background-color: #ccc;
   }
 
-  /* Selectors to be matched up with rulesets */
-
-.card article img
-.card footer
-.card header
-.card
-
-/* Rulesets to be matched up with selectors */
+h2,p {
+    margin: 0;
+}
 
 .card {
   width: 35em;
@@ -38,7 +33,30 @@ body {
   border-radius: 0 0 1.5em 1.5em;
 }
 
+.card header, footer {
+
+    padding: 1em;
+    height: 3em;
+
+}
+
 .card article img {
   max-height: 100%;
   float: right;
+}
+
+article {
+    height: 12em;
+    background-color: white;
+}
+
+h2 {
+    font-size:2em ;
+    line-height: 1.5em;
+}
+
+.card footer p {
+
+    font-size: 1.5em;
+    line-height: 1.5em;
 }
