@@ -21,16 +21,19 @@ h2,p {
   background-color: red;
   border: 0.2em solid black;
   border-radius: 1.5em;
+  overflow: hidden;
 }
 
 .card header { 
   background-image: linear-gradient(to bottom,rgba(0,0,0,0.1), rgba(0,0,0,0));
   border-radius: 1.5em 1.5em 0 0;
+  color: black;
 }
 
 .card footer {
   background-image: linear-gradient(to bottom,rgba(0,0,0,0), rgba(0,0,0,0.1));
   border-radius: 0 0 1.5em 1.5em;
+  color: black;
 }
 
 .card header, footer {
@@ -45,18 +48,70 @@ h2,p {
   float: right;
 }
 
-article {
-    height: 12em;
-    background-color: white;
+.card article {
+    height: 11em;
+    background-color: rgba(0,0,0,0.5);
+    padding: 1em;
+}
+
+.card article p{
+    margin: 0;
+    color: antiquewhite;
+    line-height: 1.5;
 }
 
 h2 {
     font-size:2em ;
     line-height: 1.5em;
+    color: black;
 }
 
 .card footer p {
 
     font-size: 1.5em;
-    line-height: 1.5em;
+    
 }
+
+/* Styles for elly card */
+.elly {
+    background-color: lightskyblue;
+    border: 0.2em solid black;
+    border-radius: 1.5em;
+  }
+  
+  .elly header {
+    background-image: linear-gradient(to bottom, rgba(255, 165, 0, 0.7), rgba(255, 0, 0, 0.5));
+    border-radius: 1.5em 1.5 em 0 0;
+    color: white;
+  }
+  
+  .elly footer {
+    background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+    border-radius: 0 0 1.5em 1.5 em;
+    color: black;
+    text-align: center;
+  }
+  
+  .elly article {
+    height: 10em;
+    background-color: rgba(0,0,0,0.5);
+    padding: 1em;
+  }
+
+.elly article img {
+    height: 15em;
+    width: 13em;
+    float: right;
+}
+
+.blue-card h2 {
+    font-size: 2em;
+    line-height: 1.5em;
+    color: white; 
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+  }
+  
+  .blue-card footer p {
+    font-size: 1.5em;
+    line-height: 1.5em;
+  }
