@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #ccc;
+}
+
+/* Your CSS below here */
+
+.letter{
+  width:600px;
+  height:800px;
+  background-color: white;
+  border-top: 1mm solid #555; /* 1mm top and bottom border */
+  border-bottom: 1mm solid #555;
+  position: relative;
+  overflow: hidden;
+}
+
+.letter::before, .letter::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  z-index: -1; /* Behind the content */
+}
+
+.letter::before {
+  top: 0;
+  background-image: url(top-image.png); /* Top fixed image */
+}
+
+.letter::after {
+  bottom: 0;
+  background-image: url('bottom-image.png'); /* Bottom fixed image */
+}
+
+.letter {
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.0) 50%, rgba(0, 0, 0, 0.6) 100%), 
+    url('top-image.png') no-repeat top, 
+    url('bottom-image.png') no-repeat bottom;
+  background-size: cover, cover;
+}
+
+.logo {
+  font-size: 2rem;
+  text-align: center;
+  background-image: url('logo.png'); /* Logo as background image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 50px 0;
+  color: transparent; /* Hide text, show only logo */
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2)); /* Subtle drop shadow for logo */
+}
+
+
+address {
+  position: absolute;
+  bottom: 8mm;
+  right: 20mm;
+}
+
+
