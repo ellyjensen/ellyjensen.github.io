@@ -4,14 +4,14 @@ body {
     background-image: url('snowboard.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    position: fixed;
+    position: relative;
   }
   
   
   .box {
-    position: fixed;
+    position: relative;
     width: 100%;
-    max-width: 800px; 
+    max-width: auto; 
     margin: 0 auto;
   }
   
