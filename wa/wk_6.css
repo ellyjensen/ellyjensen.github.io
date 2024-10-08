@@ -4,14 +4,16 @@ body {
     background-image: url('snowboard.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     position: relative;
+    overflow: hidden;
   }
   
   
   .box {
     position: relative;
     width: 100%;
-    max-width: auto; 
+    max-width: 8000px; 
     margin: 0 auto;
   }
   
@@ -24,6 +26,7 @@ body {
   
   .overlay {
     position: absolute;
+    width: 30%;
   }
   
   
@@ -40,8 +43,8 @@ body {
   
   
   .overlay-image {
-    width: 300px; 
-    height: 300px;
+    width: 150%; 
+    height: 100%;
   
   }
   
