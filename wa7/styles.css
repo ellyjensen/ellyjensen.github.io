@@ -1,0 +1,81 @@
+/* General styling */
+body {
+    background-color: #fff;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Flexbox navigation at the top */
+  nav {
+    background-color: black;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  /* Grid layout for the main content */
+  main {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  article {
+    flex: 3;
+  }
+  
+  aside {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  /* Wrapping text around the image in the article */
+  article img {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    max-width: 300px;
+  }
+  
+  /* Grid layout for the photos in aside */
+  aside ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  aside ul li img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
