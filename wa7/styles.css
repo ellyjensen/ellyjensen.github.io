@@ -1,4 +1,4 @@
-/* General styling */
+
 body {
     background-color: #fff;
     color: #333;
@@ -7,7 +7,7 @@ body {
     padding: 0;
   }
   
-  /* Flexbox navigation at the top */
+
   nav {
     background-color: black;
     padding: 10px;
@@ -31,8 +31,7 @@ body {
     padding: 10px;
     font-size: 16px;
   }
-  
-  /* Grid layout for the main content */
+
   main {
     display: flex;
     justify-content: space-between;
@@ -50,7 +49,7 @@ body {
     margin-left: 20px;
   }
   
-  /* Wrapping text around the image in the article */
+
   article img {
     float: left;
     margin-right: 15px;
@@ -58,7 +57,7 @@ body {
     max-width: 300px;
   }
   
-  /* Grid layout for the photos in aside */
+
   aside ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -72,7 +71,7 @@ body {
     height: auto;
   }
   
-  /* Clear floats */
+
   .clearfix::after {
     content: "";
     clear: both;
