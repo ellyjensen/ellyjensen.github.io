@@ -1,4 +1,4 @@
-const apiEndpoint = "https://v2.jokeapi.dev/joke/Any?"; 
+const apiEndpoint = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=singleLinks to an external site."; 
 
 async function getJoke() {
     console.log("Button clicked, fetching a joke...");
