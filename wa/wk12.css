@@ -1,7 +1,8 @@
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
             text-align: center;
+            background-color: pink;
             margin: 20px;
         }
         img {
@@ -12,7 +13,7 @@
         button {
             padding: 10px 20px;
             font-size: 18px;
-            background-color: #007BFF;
+            background-color: palevioletred;
             color: white;
             border: none;
             border-radius: 5px;
