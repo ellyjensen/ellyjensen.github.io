@@ -1,0 +1,35 @@
+#projects{
+    display: flex;
+    flex-direction:column;
+    margin: 10vh 20vw;
+}
+
+#projects a{
+    text-decoration:none;
+    color:black;
+}
+
+.project:hover{
+    background-color:rgb(180, 255, 165);
+}
+
+.project{
+    display:flex;
+    flex-direction:row;
+    border: 1px solid black;
+    margin-top:10px;
+    padding: 15px 20px;
+}
+
+.project img{
+    width:10vw;
+}
+
+#buttons{
+    display:flex;
+    justify-content: center;
+}
+
+#buttons button{
+    margin:10px;
+}
