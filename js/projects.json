@@ -1,0 +1,120 @@
+{
+	"projects": [{
+			"name": "Together Apart",
+			"subdomain": "together_apart",
+			"category": ["tangible", "networked", "participatory", "publication", "lead", "methods"],
+			"subtitle": "Co-Designing A Robot Interface for Remote Co-Design",
+			"collaborators": ["Kaiwen Sun", "Zahra Dhuliawala", "Fumi Tsukiyama", "Iva Matkovic", "Anastasia Wolf", "Zihao (Leo) Zhang", "Priyanka Balasubramaniyam", "Zach Schwemler", "Allison Druin", "Jason Yip", "Amanda Huynh", "Daniel Leithinger"],
+			"abstract": "A long term participatory design project with KidsTeam UW to create a remote and hybrid tangible co-design tool. We utilize Sony toio robots to build a networked robot platform that child designers can use to collaborate in real time.",
+			"description": ["In Human-Computer Interaction, children have been active participants in co-designing future technologies for other children. Most studies in co-design (prior to COVID-19), focused on co-located in-person sessions that involved physical techniques, such as hand-drawn and crafted prototypes, acting out scenarios, and playing movement games to generate ideas. However, these physically proximal activities are not possible online. This lack of physical engagement creates barriers and leaves children feeling less creative and engaged in the remote co-design process.", "To workaround this situation in which children are co-designing online, we have worked with KidsTeam UW to create another option for remote co-design: tangible interfaces for remote co-design. Our project, Together Apart, uses toio tabletop robots and a tablet interface to add a tangible dimension to online co-design. When using our system, our child design partners acted in an engaged manner not typically seen in remote settings.", "While working together online, KidsTeam UW children used our toio robotics system to design games, swarm robot expressions, and create physical art together. For our workshop contribution, we will showcase some of our work-in-progress and develop potential collaborations for tangible online co-design. In the future we plan to move from a fully remote environment to a hybrid environment for co-design. We will engage in conversations with KidsTeam UW about how tangible interfaces for hybrid environments differ from fully online contexts."],
+			"mainimg": "tapart.jpg",
+			"video": ["False"],
+			"images": ["tapart.jpg", "mario and luigi cropped.PNG", "draw 1.PNG", "dance actually.PNG", "robot marbles.PNG"],
+			"published": ["True","1"],
+			"citations": [["Casey Lee Hunt, Kaiwen Sun, Zahra Dhuliawala, Fumi Tsukiyama, Iva Matkovic, Zachary Schwemler, Anastasia Wolf, Zihao Zhang, Allison Druin, Amanda Huynh, Daniel Leithinger, and Jason Yip. 2023. <span>Designing Together, Miles Apart: A Longitudinal Tabletop Telepresence Adventure in Online Co-Design with Children</span>. In Proceedings of the 22nd Annual ACM Interaction Design and Children Conference (IDC '23). Association for Computing Machinery, New York, NY, USA, 52–67.", "https://caseyhunt.github.io/assets/idc23-8_3.pdf", "View on ACM", "https://dl-acm-org.colorado.idm.oclc.org/doi/10.1145/3585088.3589359"]]
+			
+	},{"name": "TactorBots",
+			"subdomain": "tactorbots",
+			"category": ["tangible", "networked", "participatory", "toolkit", "shape_change", "publication", "award", "support"],
+			"subtitle": "A Haptic Design Toolkit for Out-of-lab Exploration of Emotional Robotic Touch",
+			"collaborators": ["Ran Zhou (Lead)", "Zachary Schwemler","Aksha Baweja", "Harpreet Sareen", "Daniel Leithinger"],
+			"abstract": "A toolkit for haptic designers to explore emotional robotic touch through a web GUI and eight plug and play wearable modules. Social touch is psychologically impactful, TactorBots reduces the barrier to entry for the design / creation of these interactions.",
+			"description": ["Psychological research has found that humans convey specific emotions (e.g., anger, fear, happiness) using social touch patterns, like squeezing a friend's arm when we are afraid. Emotional haptics, then, are an opportunity to create more enriching and intimate interactions with technology. However, designing emotional haptics systems requires a relatively high degree of technical skill. To overcome this challenge and make emotional haptics an accessible 'design canvas,' we created TactorBots."
+			, "TactorBots is a haptic toolkit to create emotional robotic touch. It contains eight plug-and-play wearable tactor modules that render a series of social gestures with servo motors. The associated web GUI allows easy control, modification, and storage of tactile patterns to support fast prototyping. As a result, we remove the need for hardware design and programming, enabling designers to try out various tactile sensations, and create at the boundary between touch and emotion."],
+			"mainimg": "tbots_cover.png",
+			"video": ["True","False"],
+			"images": ["tbots_cover.png"],
+			"video_url": "https://player.vimeo.com/video/798871223?h=dafa20ef89",
+			"published": ["True","1"],
+			"citations": [["Ran Zhou, Zachary Schwemler, Akshay Baweja, Harpreet Sareen, Casey Lee Hunt, and Daniel Leithinger. 2023. <span>TactorBots: A Haptic Design Toolkit for Out-of-lab Exploration of Emotional Robotic Touch.</span> In Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (CHI '23). Association for Computing Machinery, New York, NY, USA, Article 370, 1–19.", "https://caseyhunt.github.io/assets/chi-23.pdf", "View on ACM", "https://dl-acm-org.colorado.idm.oclc.org/doi/abs/10.1145/3544548.3580799"]]
+
+	},{
+			"name": "Designing Sensory Extensions for Interactive Simulations",
+			"subdomain": "ratio_and_proportion",
+			"category": ["tangible", "participatory", "educational", "publication", "lead", "education"],
+			"subtitle": "Investigating Sensory Extensions as Input for an Interactive Math Simulation",
+			"collaborators": ["Chris Hill (Co-Lead)", "Sammie Crowder", "Brett Fielder", "Emily Moore", "Ann Eisenberg"],
+			"abstract": "Sensory extensions transduce stimuli to extend awareness. Our suite of wearable devices extend learner's perceptions of the math concept of ratios and proportions by facilitating embodied interactions with an associated simulation (GUI).",
+			"description": ["Sensory extensions enhance our awareness by transforming variations in stimuli normally undetectable by human senses into perceivable outputs. Similarly, interactive simulations for learning promote an understanding of abstract phenomena. Combining sensory extension devices with interactive simulations gives users the novel opportunity to connect their sensory experiences in the physical world to computer-simulated concepts. We explore this opportunity by designing a suite of wearable sensory extension devices that interface with a uniquely inclusive PhET Simulation, Ratio and Proportion. In this simulation, two hands can be moved on-screen to various values, representing different mathematical ratios. Users explore changing hand heights to find and maintain ratios through visual and auditory feedback. Our sensory extension devices translate force, distance, sound frequency, and magnetic field strength to quantitative values in order to control individual hands in the computer simulation. This paper describes the design of the devices and our analysis of feedback from 23 high-school aged youth who used our designs to interact with the Ratio and Proportion."],
+			"mainimg": "sensoryextension_cover.jpg",
+			"video": ["True","True"],
+			"images": ["sensoryextension_cover.jpg", "sensory_extension_render.png", "using_se.jpg"],
+			"video_id": "naIZ2wla7WA",
+			"published": ["True","1"],
+			"citations": [["Chris Hill, Casey Lee Hunt, Sammie Crowder, Brett Fiedler, Emily B. Moore, and Ann Eisenberg. 2023. <span>Investigating Sensory Extensions as Input for Interactive Simulations</span>. In Proceedings of the Seventeenth International Conference on Tangible, Embedded, and Embodied Interaction (TEI '23). Association for Computing Machinery, New York, NY, USA, Article 39, 1–7.", "https://caseyhunt.github.io/assets/tei-23.pdf", "View on ACM", "https://dl-acm-org.colorado.idm.oclc.org/doi/abs/10.1145/3569009.3573108"]]
+
+		},{
+			"name": "Cyber Garden",
+			"subdomain": "cyber_garden",
+			"category": ["tangible", "participatory", "lead"],
+			"subtitle": "Ambient Community Wellness Display ",
+			"collaborators": ["Ruojia Sun", "Kit Lewers", "Sandra Bae", "Steve Voida"],
+			"abstract": "An ambient display that invites students and faculty to share and reflect on their stress as a community. With a combination of self-reported and biometric data, the community controls each robotic flower in the bouquet to record stress via closed or blooming buds.",
+			"description": ["We are inspired by related work in ambient displays as a promising technology for community wellness interfaces. Ambient displays are particularly applicable to community wellness, since they are well-suited for enabling continuous, background awareness of general states of large systems. There have been several works which use ambient displays to support mental wellness and stress management. For example, MoodLight is an interactive ambient lighting system that responds to epidermal activity biosensor data related to the user’s stress level. ", "With Cyber Garden, we design an ambient display for graduate students to report personal stress through biometrics and self-reported data. We use this data to create an anonymized, interactive visualization. We leverage previous workshops conducted with graduate students to ground our approach. When asked about burnout, these graduate students shared a desire to reach out for help, but reported not having a clear mechanism to do so. Additionally, these students reported that they would feel less alone in their difficult emotions if there was a way to see the challenging states of others."],
+			"mainimg": "cgarden.jpeg",
+			"video": ["False"],
+			"images": ["cgarden.jpeg", "garden_display.jpeg", "garden_full.jpeg"]
+		},
+		
+
+		{
+			"name": "Presence Mat",
+			"subdomain": "presence_mat",
+			"category": ["tangible", "award", "lead"],
+			"subtitle": "Low-Cost Room-Scale Radar for the Home with Off-The-Shelf Hardware",
+			"collaborators": ["Daniel Leithinger"],
+			"abstract": "A system built with off-the-shelf Ultra-High frequency RFID to create a room-scale radar system. Using deep learning Presence Mat approximates body position for yoga-based interaction.",
+			"description": ["As virtual assistants and remote classes become increasingly common in fitness, so too does the need to reliably recognize human posture and activity. We build a system that explores how device-free Ultra-High Frequency Radio Frequency Identification (UHF RFID) enables low-cost fitness tracking without the trade-offs of worn sensors or cameras.", "Because UHF RFID systems are subject to signal shielding by the human body, it is possible to utilize returned signal strength from passive tags to infer user position. However, because previous implementations only support low resolution activity recognition, application of this technology to fitness tracking is limited. With deep learning and a constrained the sensing area, we demonstrate increased fidelity, in spite of our focus on off-the-shelf systems (which provide fewer readings per second)."],
+				"mainimg": "mat.jpg",
+				"video": ["False"],
+				"images": ["mat.jpg"]
+			},
+
+			
+
+
+			{
+				"name": "DOT",
+				"subdomain": "dot",
+				"category": ["tangible", "toolkit", "lead"],
+				"subtitle": "Device for Object Based Telepresence",
+				"collaborators": ["Ruhan Yang", "Daniel Leithinger"],
+				"abstract": "A platform that utilizes tabletop swarm robots to create a dynamic tangible display. The system recognizes the identity of objects placed on the surface, and a paired display reacts to this configuration. Created for the 2021 UIST Student Innovation Challenge.",
+				"description": ["DOT, is a tabletop tangible display that detects and integrates everyday objects. Using swarm robots, we create a scalable, portable tangible interface. Two toio robots are combined with an assembly that contains a magnet with a lift screw, allowing the system to move magnet-containing objects placed on the tabletop. The resulting platform can be used for tangible play, communication, and co-creation.", "In contrast to previous approaches that use computer vision and fixed cameras for object recognition combined with a modified table, the toios in DOT recognize objects using markers placed on the base of the object, then move them. Because DOT uses a palm-sized assembly for both object recognition and movement, it does not require a stationary setup for object recognition."],
+				"mainimg": "dot.jpg",
+				"video": ["False"],
+				"images": ["dot.jpg"]
+			},
+
+			{
+				"name": "VTTV",
+				"subdomain": "vttv",
+				"category": ["tangible", "toolkit", "award", "support", "tangible"],
+				"subtitle": "Vibrotactile Tongue Display",
+				"collaborators": ["Mary Etta West (Lead)", "Netta Ofer", "Sandra Bae", "Chris Hill"],
+				"abstract": "VTTV is a seven segment vibrotactile display that combines taste and vibration to create haptic art for the tongue. The system provides a unique platform for crafting playful, flavorful, vibrotactile experiences. This project recieved honorable mention in the Student Design Competition at World Haptics Conference 2020.",
+				"description": ["The Vibrotactile Tongue Vision (VTTV) system is an open-source programmable tongue display unit (TDU) that augments visual and auditory experiences through haptic feedback. VTTV is designed to enable those without embedded systems skills to fabricate a TDU, controller, and craft tactile experiences easily. The project also includes a controller to program haptic patterns directly to the VTTV system.", "TDUs typically use electrotactile stimulation to display information to the user. These systems produce sensations by generating voltage pulses from electrodes to the user’s tongue. Commercial TDU systems are closed source, prohibitively expensive, and compromise haptic resolution for user comfort. We propose an alternative to electrotactile TDUs, a novel system that uses ERM motors for actuation. Our goal is to enable anyone to fabricate their own TDU using easily accessible materials with affordable off-the-shelf tools."],
+				"mainimg": "vttv.jpeg",
+				"video":["True", "True"],
+				"images": ["vttv.jpeg", "TDU.PNG", "vttv_unsealed.jpg", "vttv_sealed.jpeg", "vttv_candy.jpeg", "vttv_chris.jpeg"],
+				"video_id": "UD9IrikeVV8"
+			},
+
+			{
+				"name": "Everything Instrument",
+				"subdomain": "everything_instrument",
+				"category": ["tangible", "toolkit", "support", "education"],
+				"subtitle": "Turn Anything Into an Instrument",
+				"collaborators": ["Ruhan Yang (Lead)"],
+				"abstract": "A platform that allows people to turn anything into an instrument using copper tape. After applying copper tape to everyday household objects, users attach their creation to Everything Instrument, using buttons to customize the pitch and character of their sound. Designed for the SynthUX 2021 hackathon.",
+				"description": ["Using capacitive touch, PaperMagnets, a few buttons, and a microphone, we create amodular system that allows any object to become a part of the orchestra. We demonstrate this platform by building a melodica, keyboard, cello, trombone, and percussion. The system utilizes the capacitive touch breakout to create a 12 tone scale. From there, we utilize up to six buttons to modify the sound. In the case of the melodica and keyboard, the buttons can be used to change octaves. In the case of the cello, the buttons function as strings. The wind instruments utilize a microphone in the mouthpiece to detect whether and how hard air is being blown into the instrument."],
+				"mainimg": "ei.jpeg",
+				"video": ["True", "True"],
+				"images": ["ei.jpeg"],
+				"video_id":"DRxS6wDXom8"
+			}
+		]
+
+
+
+	}
