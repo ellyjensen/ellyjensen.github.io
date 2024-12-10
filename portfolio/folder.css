@@ -1,0 +1,204 @@
+
+/* Folder landing page styles */
+body {
+    background: linear-gradient(145deg, #72b8ff, #b0cfff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    cursor: url('cursor.png'), auto; 
+}
+
+/* Folder styles */
+.folder {
+    width: 150px;
+    animation: bounce 2s infinite;
+    transition: transform 0.3s ease;
+}
+
+.folder img {
+    width: 100%;
+}
+
+.folder:hover {
+    transform: scale(1.1);
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Loading screen styles */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    visibility: hidden; /* Hidden initially */
+}
+
+.open-folder + .loading-screen {
+    visibility: visible;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Main Portfolio styling */
+
+/* General Reset */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Full screen and thick grey border */
+
+
+/* Navbar styles */
+#navbar {
+    background-color: #f5f5f5;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+#navbar li {
+    margin: 0 15px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+}
+
+/* About Section */
+#about {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-top: 70px;
+    height: 60vh; /* Adjusted for scroll */
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.left-content {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.about-text {
+    font-size: 1.5rem;
+    color: black;
+}
+
+.right-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.paint-frame {
+    width: 500px;
+    height: 500px;
+    background: url('untitled-paint.jpg') no-repeat center center;
+    background-size: cover;
+    border: 2px solid black; /* Border around the untitled paint */
+}
+
+.profile-photo {
+    width: 50%;
+    height: 50%;
+    border-radius: 10%;
+}
+
+#portfolio-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+/* Scrollable content area */
+#projects {
+    padding: 20px;
+    background-color: #fff;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.scrollable-content {
+    padding-bottom: 60px; /* Space for contact section */
+}
+
+/* Contact Section */
+#contact {
+    background-color: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+}
+
+#contact input,
+#contact textarea {
+    margin: 10px;
+    padding: 10px;
+    width: 80%;
+}
+
+#contact button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
