@@ -45,7 +45,7 @@ html, body {
     height: 100vh;
     flex-direction: row;
     text-align: right;
-    padding: 0 10%;
+    padding: 10% 10%;
 }
 
 .landing-content {
@@ -106,23 +106,75 @@ p {
 }
 
 /* project section*/
+#projects{
+    padding: 150px 0px 150px 0px; /* More padding for the project section */
+    text-align: center;
+    margin-top: 80px;
+    position: relative;
+}
+
+#projects h2 {
+    font-size: 3rem;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative; /* Needed for positioning the buttons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide images outside the visible area */
+    width: 80%; /* Adjust width as needed */
+    margin: 0 auto;
+}
+
 .carousel {
     display: flex;
-    overflow: hidden;
-    width: 100%;
-    justify-content: center;
+    transition: transform 1s ease-in-out;
 }
 
 .carousel-slide {
-    min-width: 300px;
-    margin: 10px;
-    transition: transform 5s ease;
+    min-width: 100%;
+    margin: 0px;
 }
 
 .carousel-slide img {
-    width: 100%;
+    width: 70%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 10px;  
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-controls button {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.carousel-controls .prev-btn {
+    left: 20px; /* Moves prev button to the left */
+}
+
+.carousel-controls .next-btn {
+    right: 20px; 
+}
+
+.carousel-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .see-more-btn {
@@ -135,6 +187,7 @@ p {
     border: solid;
     border-radius: 10px;
     text-decoration: none;
+    right: 20px;
 }
 
 .see-more-btn:hover {
@@ -190,26 +243,5 @@ footer a:hover {
     color: #ddd;
 }
 
-
-/* Link Styling */
-a {
-    text-decoration: none; /* Remove underline from links */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 4rem;
-    }
-
-    p {
-        font-size: 2rem;
-    }
-
-    #buttons button {
-        font-size: 1.2rem;
-        width: 150px;
-    }
-}
 
 

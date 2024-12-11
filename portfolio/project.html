@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Projects</title>
-    <link rel="stylesheet" href="portfolio.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="project.css">
 </head>
 <body>
 
+    <!-- Navbar (optional) -->
+    <header>
+        <nav id="navbar">
+            <a href="portfolio.html">Portfolio</a>
+        </nav>
+    </header>
+
+    <!-- Sorting Buttons -->
+    <div id="buttons">
+        <button value="graphic">Graphic</button>
+        <button value="photography">Photography</button>
+        <button value="Modelling">Modelling</button>
+        <button value="Industrial">Industrial</button>
+    </div>
+
     <!-- Projects Section -->
     <section id="projects">
-        <h1>My Projects</h1>
-        <p>Here are some of the projects I've worked on:</p>
-        <!-- Add project details here, such as images, descriptions, etc. -->
-        <div class="project-list">
-            <div class="project">
-                <h2>Project 1</h2>
-                <p>Description of project 1...</p>
-                <a href="https://example.com/project1">View Project</a>
-            </div>
-            <div class="project">
-                <h2>Project 2</h2>
-                <p>Description of project 2...</p>
-                <a href="https://example.com/project2">View Project</a>
-            </div>
-            <div class="project">
-                <h2>Project 3</h2>
-                <p>Description of project 3...</p>
-                <a href="https://example.com/project3">View Project</a>
-            </div>
+        <h2>My Projects</h2>
+        <div class="project-grid" id="projects-list">
+            <!-- Projects will be populated here dynamically using JavaScript -->
         </div>
     </section>
 
-    <!-- Back to Landing Page Button -->
-    <div id="back-button">
-        <a href="index.html"><button>Back to Landing Page</button></a>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Ellyse Jensen</p>
+        <a href="https://www.linkedin.com/in/ellyse-jensen-8a9992202/">LinkedIn</a>
+    </footer>
 
+    <script src="project.js"></script>
 </body>
 </html>

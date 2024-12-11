@@ -1,34 +1,28 @@
-let lastScrollTop = 0;
-const navbar = document.getElementById('navbar');
-
-window.addEventListener('scroll', function() {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (currentScroll > lastScrollTop) {
-        // Scrolling down: hide the navbar
-        navbar.classList.remove('visible');
-    } else {
-        // Scrolling up: show the navbar
-        navbar.classList.add('visible');
-    }
-
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-});
-
-//carousel//
-
-let currentSlide = 0;
+let currentIndex = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const totalSlides = slides.length;
 
+// Function to go to the next slide
 function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
+    currentIndex = (currentIndex + 1) % totalSlides; // Loop back to the first slide
     updateCarousel();
 }
 
-function updateCarousel() {
-    const offset = -currentSlide * 100;
-    document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
+// Function to go to the previous slide
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // Loop to the last slide
+    updateCarousel();
 }
 
-setInterval(nextSlide, 3000); // Change slide every 3 seconds
+// Function to update the transform of the carousel
+function updateCarousel() {
+    const newTransform = -currentIndex * 100; // Move the carousel by 100% of each slide width
+    document.querySelector('.carousel').style.transform = `translateX(${newTransform}%)`;
+}
+
+// Attach event listeners for the next and previous buttons
+document.querySelector('.next-btn').addEventListener('click', nextSlide);
+document.querySelector('.prev-btn').addEventListener('click', prevSlide);
+
+
+

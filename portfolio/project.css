@@ -1,0 +1,102 @@
+/* General Reset */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: whitesmoke;
+    color: black;
+    overflow-x: hidden;
+}
+
+/* Projects Section */
+#projects {
+    text-align: center;
+    margin-top: 20%;
+    margin-bottom: 34%;
+}
+
+#projects h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+/* Sorting Buttons */
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+#buttons button {
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#buttons button:hover {
+    background-color: skyblue;
+}
+
+/* Project Grid Layout */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Project Item */
+.project-item {
+    position: relative;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.project-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hover Effect - Show Description */
+.project-item .description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover .description {
+    transform: translateY(0);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+footer a:hover {
+    color: #ddd;
+}
