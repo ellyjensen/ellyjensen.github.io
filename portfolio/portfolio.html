@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ellyse's Portfolio</title>
     <link rel="stylesheet" href="portfolio.css">
 </head>
@@ -11,18 +12,54 @@
     <section id="landing">
         <div class="landing-content">
             <div class="left-content">
-                <h1>Hi, my name is Ellyse</h1>
+                <h1>Hi, my name is Elly</h1>
                 <p>& This is my portfolio</p>
             </div>
         </div>
+    </section>
 
-        <!-- Buttons for navigation -->
-        <div id="buttons">
-            <a href="about.html"><button>About Me</button></a>
-            <a href="projects.html"><button>Projects</button></a>
-            <a href="contact.html"><button>Contact</button></a>
+    <!-- Sections below the Landing Page -->
+    <section id="about">
+        <div class="about-text">
+        <p> A little bit about me, I am a third-year Creative Technology and Design student at CU Boulder with a strong passion for industrial design. My academic focus blends creativity with technology, and I am dedicated to developing innovative and functional design solutions. Through my studies and hands-on projects, I aim to create impactful designs that enhance user experience and usability. </p>
         </div>
     </section>
 
+    <section id="projects">
+        <h2>Recent Projects</h2>
+    <div class="carousel">
+        <div class="carousel-slide">
+            <img src="Final proj.png" alt="Project 1">
+        </div>
+        <div class="carousel-slide">
+            <img src="downhillers.png" alt="Project 2">
+        </div>
+        <div class="carousel-slide">
+            <img src="broadside 2 final copy.png" alt="Project 3">
+        </div>
+    </div>
+    <a href="project.html" class="see-more-btn">See More</a>
+    </section>
+
+    <section id="contact">
+        <section id="contact" class="contact-section">
+            <h2>Contact Me</h2>
+            <form action="mailto:your-email@example.com" method="POST" enctype="text/plain">
+                <input type="text" name="first-name" placeholder="First Name" required>
+                <input type="text" name="last-name" placeholder="Last Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+        
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ellyse Jensen</p>
+        <a href="https://www.linkedin.com/in/ellyse-jensen-8a9992202/">LinkedIn</a>
+    </footer>
+
+    <script src="portfolio.js"></script>
 </body>
 </html>
