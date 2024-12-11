@@ -14,11 +14,15 @@ html, body {
     text-align: center;
     margin-top: 20%;
     margin-bottom: 34%;
+    padding: 0 30px;
 }
 
 #projects h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 40px;
+    text-align: center;
+    margin-top: -10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Sorting Buttons */

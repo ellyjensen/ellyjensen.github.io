@@ -16,7 +16,7 @@ function parseData(data) {
         const projectItem = document.createElement("div");
         projectItem.classList.add("project-item");
         projectItem.innerHTML = `
-            <img src="images/${project.mainimg}" alt="${project.name}">
+            <img src="${project.mainimg}" alt="${project.name}">
             <div class="description">
                 <h3>${project.name}</h3>
                 <p>${project.abstract}</p>
