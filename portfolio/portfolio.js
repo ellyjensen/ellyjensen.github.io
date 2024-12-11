@@ -1,79 +1,53 @@
-let proj;
-fetch('../class notes/projects.json')
-    .then(response =>{
-        return response.json();
-    }).then(projects => {
-        console.log(projects);
-        proj = projects;
-        parseData(projects);
-    }).catch(err =>{
-        console.log(`error ${err}`);
-    })
+document.addEventListener('DOMContentLoaded', () => {
+    const aboutMeSection = document.getElementById("about-me");
+    const portfolioSection = document.getElementById("portfolio");
+    const contactSection = document.getElementById("contact");
 
-function parseData(data){
-    for(let i=0; i<data.projects.length; i++){
-    document.getElementById("projects").innerHTML += `<a href="/class notes/${data.projects[i].subdomain}.html">
-    <div class="row project" id="${data.projects[i].subdomain}">
-        <div class="projimg"><img src="images/unicorns/unicorn (${i +1}).png"></div>
-        <div class="description"><h2>${data.projects[i].name}</h2><p class="subtitle">${data.projects[i].subtitle}</p>
-        <p>${data.projects[i].abstract}</p></div></div></a>`;
-    }
-}
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
 
-for(b of document.querySelectorAll("#buttons button")){
-    b.addEventListener("click", e=>{
-        console.log(e.target.value);
-        sortProjects(e.target.value);
-    })
-}
-
-function sortProjects(button){
-    if(button == "clear"){
-        for(let i=0; i<proj.projects.length; i++){
-            document.getElementById(proj.projects[i].subdomain).style.display = "flex";
+        // Reveal About Me section when scrolled past the landing page
+        if (scrollY > document.getElementById("landing").offsetHeight) {
+            aboutMeSection.classList.add('visible');
         }
-    }else if(button != undefined){
-        for(let i=0; i<proj.projects.length;i++){
-            if(proj.projects[i].category.includes(button) == true){
-                document.getElementById(proj.projects[i].subdomain).style.display = "flex";
-            }else{
-                document.getElementById(proj.projects[i].subdomain).style.display = "none";
-            }
+
+        // Reveal Portfolio section when scrolled further
+        if (scrollY > aboutMeSection.offsetHeight + aboutMeSection.offsetTop) {
+            portfolioSection.classList.add('visible');
         }
-    }else{
-        console.log("error, button value is undefined");
+
+        // Reveal Contact section when scrolled further
+        if (scrollY > portfolioSection.offsetHeight + portfolioSection.offsetTop) {
+            contactSection.classList.add('visible');
+        }
+    });
+});
+
+let lastScrollTop = 0; // Keeps track of the last scroll position
+
+window.addEventListener('scroll', function() {
+    let navbar = document.getElementById("navbar");
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    // If we are scrolling down, hide the navbar
+    if (currentScroll > lastScrollTop) {
+        navbar.classList.add('hide');
+    } else {
+        // If we are scrolling up, show the navbar
+        navbar.classList.remove('hide');
     }
 
-}
+    // Update the last scroll position to the current one
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
 
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
 
-let subdomain = window.location.href.slice(window.location.href.lastIndexOf("/")+1, window.location.href.lastIndexOf("."));
-console.log(subdomain);
-
-fetch('../class notes/projects.json')
-    .then(response =>{
-        return response.json();
-    }).then(projects => {
-        //console.log(projects);
-        proj = projects;
-        findProjectInJSON(projects);
-        // parseData(projects);
-    }).catch(err =>{
-        console.log(`error ${err}`);
-    })
-
-function findProjectInJSON(projects){
-    for(let i=0; i<projects.projects.length; i++){
-        if(projects.projects[i].subdomain == subdomain){
-            buildPage(projects.projects[i]);
-            break;
-        }else{
-            continue;
-        }
-    }
-}
-
-function buildPage(project){
-    console.log(project);
-    document.getElementById("project").innerHTML += `<h1>${project.name}</h1>`;
-}
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});

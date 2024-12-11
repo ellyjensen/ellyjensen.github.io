@@ -3,57 +3,26 @@
 <head>
     <meta charset="utf-8">
     <title>Ellyse's Portfolio</title>
-    <link rel="stylesheet" href="folder.css">
+    <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav id="navbar">
-        <ul>
-            <li><a href="#about">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <!-- Main container with thick grey border -->
-    <div id="main-container">
-        <!-- About Me Section -->
-        <section id="about">
-            <div class="about-content">
-                <!-- Profile Image and Untitled Paint Image -->
-                <div class="left-content">
-                    <div class="about-text">
-                        <h1>About Me</h1>
-                        <p>Write your about me section here. This text will appear next to your photo, giving visitors an introduction to who you are and what you do.</p>
-                    </div>
-                </div>
-                <div class="right-content">
-                    <div class="paint-frame">
-                        <img src="elly.JPEG" alt="Ellyse" class="profile-photo">
-                    </div>
-                </div>
+    <!-- Landing Page Section -->
+    <section id="landing">
+        <div class="landing-content">
+            <div class="left-content">
+                <h1>Hi, my name is Ellyse</h1>
+                <p>& This is my portfolio</p>
             </div>
-            <!-- Portfolio button with scroll requirement -->
-            <button id="portfolio-button">Portfolio Projects</button>
-        </section>
+        </div>
 
-        <!-- Scrollable section (includes contact form at the bottom) -->
-        <section id="projects">
-            <div class="scrollable-content">
-                <!-- The contact section -->
-                <section id="contact">
-                    <h2>Contact Me</h2>
-                    <form action="#">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <textarea name="message" placeholder="Your Message" required></textarea>
-                        <button type="submit">Send Message</button>
-                    </form>
-                </section>
-            </div>
-        </section>
-    </div>
+        <!-- Buttons for navigation -->
+        <div id="buttons">
+            <a href="about.html"><button>About Me</button></a>
+            <a href="projects.html"><button>Projects</button></a>
+            <a href="contact.html"><button>Contact</button></a>
+        </div>
+    </section>
 
-    <script src="folder.js"></script>
 </body>
 </html>

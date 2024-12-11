@@ -1,35 +1,91 @@
-#projects{
+/* General Reset */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    overflow-x: hidden;
+}
+
+/* Landing Page Styles */
+#landing {
     display: flex;
-    flex-direction:column;
-    margin: 10vh 20vw;
-}
-
-#projects a{
-    text-decoration:none;
-    color:black;
-}
-
-.project:hover{
-    background-color:rgb(180, 255, 165);
-}
-
-.project{
-    display:flex;
-    flex-direction:row;
-    border: 1px solid black;
-    margin-top:10px;
-    padding: 15px 20px;
-}
-
-.project img{
-    width:10vw;
-}
-
-#buttons{
-    display:flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
 }
 
-#buttons button{
-    margin:10px;
+.landing-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.left-content {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 7rem;
+    font-weight: 900;
+    margin: 0;
+    color: black;
+}
+
+p {
+    font-size: 3rem;
+    color: #888888;
+    font-weight: 300;
+}
+
+/* Button Styling */
+#buttons {
+    position: absolute;
+    bottom: 30px; /* Adjust the bottom margin */
+    width: 100%;
+    display: flex;
+    justify-content: space-around; /* Spread buttons evenly */
+}
+
+#buttons button {
+    padding: 20px 40px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 200px; /* Make each button large */
+}
+
+#buttons button:hover {
+    background-color: #555; /* Hover effect for buttons */
+}
+
+/* Link Styling */
+a {
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+
+    #buttons button {
+        font-size: 1.2rem;
+        width: 150px;
+    }
 }
