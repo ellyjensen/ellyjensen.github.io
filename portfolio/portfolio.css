@@ -78,7 +78,7 @@ p {
 /*about section*/
 #about {
     position: relative;
-    background-image: url('elly.JPEG');
+    background-image: url('images/elly.JPEG');
     background-attachment: fixed; /* Parallax effect */
     background-size: 55%;
     background-position: center;

@@ -7,8 +7,8 @@
 		"subtitle": "Creative Logo Design",
 		"abstract": "A retro design for Mount Hood Meadows campaign.",
 		"description": ["This project involved creating a motivational poster encoura."],
-		"mainimg": "/images/final_proj.png",
-		"images": ["/images/final_proj.png"]
+		"mainimg": "images/final_proj.png",
+		"images": ["images/final_proj.png"]
 	  },
 	  {
 		"name": "Broadside",
@@ -17,8 +17,8 @@
 		"subtitle": "Typography representation",
 		"abstract": "Representing a typeface using graphic design principles.",
 		"description": ["The goal of this project was to create a strong and unique brand identity, including the logo, typography, and colors."],
-		"mainimg": "/images/broadside_2_final_copy.png",
-		"images": ["/images/broadside_2_final_copy.png"]
+		"mainimg": "images/broadside_2_final_copy.png",
+		"images": ["images/broadside_2_final_copy.png"]
 	  },
 	  {
 		"name": "Downhillers brand design",
@@ -27,8 +27,8 @@
 		"subtitle": "Brand design for Downhillers club",
 		"abstract": "Creating a visually appealing brand design for Northeastern Ski and Snowboard club.",
 		"description": ["This project involved creating eye-catching packaging that aligned with the product’s target market and brand values."],
-		"mainimg": "/images/DOWNHILL_MERCH_V1.png",
-		"images": ["/images/DOWNHILL_MERCH_V1.png"]
+		"mainimg": "images/DOWNHILL_MERCH_V1.png",
+		"images": ["images/DOWNHILL_MERCH_V1.png"]
 	  },
 	  {
 		"name": "Photography Project 1",
