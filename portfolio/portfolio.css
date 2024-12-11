@@ -87,14 +87,18 @@ p {
     text-align: center;
     margin-top: 150px;
     margin-bottom: 200px;
+    display: flex;
+    flex-direction: column;
 }
 
 .about-text {
     position: absolute;
-    right: 70px;
+    right: 10%;
     top: 50%;
     transform: translateY(-50%);
-    width: 36%;
+    width: 50%;
+    text-align: right;
+    padding: 10px;
 
 }
 
@@ -203,6 +207,9 @@ p {
     margin: 10px 0;
     border-radius: 5px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-section {
@@ -218,6 +225,9 @@ p {
     border: solid, lightslategray;
     font-size: 1.2rem;
     border-radius: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-section button:hover {
@@ -244,4 +254,27 @@ footer a:hover {
 }
 
 
+@media (max-width: 768px) {
+    #about {
+        padding: 200px 20px;  
+    }
 
+    .about-text {
+        position: relative;
+        width: 90%;  
+        text-align: center;  
+    }
+
+    .about-text p {
+        font-size: 1.8rem; 
+    }
+
+    .contact-section input, .contact-section textarea {
+        width: 90%;  
+        padding: 12px;  
+    }
+
+    .contact-section button {
+        width: 90%;  
+    }
+}
