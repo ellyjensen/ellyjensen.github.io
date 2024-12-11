@@ -7,8 +7,8 @@
 		"subtitle": "Creative Logo Design",
 		"abstract": "A retro design for Mount Hood Meadows campaign.",
 		"description": ["This project involved creating a motivational poster encoura."],
-		"mainimg": "final_proj.png",
-		"images": ["final_proj.png"]
+		"mainimg": "/images/final_proj.png",
+		"images": ["/images/final_proj.png"]
 	  },
 	  {
 		"name": "Broadside",
@@ -17,8 +17,8 @@
 		"subtitle": "Typography representation",
 		"abstract": "Representing a typeface using graphic design principles.",
 		"description": ["The goal of this project was to create a strong and unique brand identity, including the logo, typography, and colors."],
-		"mainimg": "broadside_2_final_copy.png",
-		"images": ["broadside_2_final_copy.png"]
+		"mainimg": "/images/broadside_2_final_copy.png",
+		"images": ["/images/broadside_2_final_copy.png"]
 	  },
 	  {
 		"name": "Downhillers brand design",
@@ -27,8 +27,8 @@
 		"subtitle": "Brand design for Downhillers club",
 		"abstract": "Creating a visually appealing brand design for Northeastern Ski and Snowboard club.",
 		"description": ["This project involved creating eye-catching packaging that aligned with the product’s target market and brand values."],
-		"mainimg": "DOWNHILL_MERCH_V1.png",
-		"images": ["DOWNHILL_MERCH_V1.png"]
+		"mainimg": "/images/DOWNHILL_MERCH_V1.png",
+		"images": ["/images/DOWNHILL_MERCH_V1.png"]
 	  },
 	  {
 		"name": "Photography Project 1",
@@ -37,8 +37,8 @@
 		"subtitle": "Urban Landscape Photography",
 		"abstract": "Capturing the beauty of urban landscapes and architecture.",
 		"description": ["This collection showcases the interplay of light and architecture in cityscapes."],
-		"mainimg": "IMG_7076.jpg",
-		"images": ["IMG_7076.jpg"]
+		"mainimg": "images/IMG_7076.jpg",
+		"images": ["images/IMG_7076.jpg"]
 	  },
 	  {
 		"name": "Photography Project 2",
@@ -47,8 +47,8 @@
 		"subtitle": "Nature Photography",
 		"abstract": "Photographs captured in Zermatt, Switzerland.",
 		"description": ["A personal portrait series that captures the essence of individuals in various moods."],
-		"mainimg": "IMG_9514.jpg",
-		"images": ["IMG_9514.jpg"]
+		"mainimg": "images/IMG_9514.jpg",
+		"images": ["images/IMG_9514.jpg"]
 	  },
 	  {
 		"name": "Photography Project 3",
@@ -57,8 +57,8 @@
 		"subtitle": "Portrait Photography",
 		"abstract": "Capturing individual identity.",
 		"description": ["A collection of photographs that highlight the beauty and tranquility of the natural world."],
-		"mainimg": "IMG_8901.jpg",
-		"images": ["IMG_8901.jpg"]
+		"mainimg": "images/IMG_8901.jpg",
+		"images": ["images/IMG_8901.jpg"]
 	  }
 	]
   }

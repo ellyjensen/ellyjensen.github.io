@@ -1,5 +1,5 @@
 let proj;
-fetch('https://ellyjensen.github.io/portfolio/projects.json')
+fetch('https://raw.githubusercontent.com/ellyjensen/ellyjensen.github.io/main/portfolio/projects.json')
     .then(response => response.json())
     .then(projects => {
         proj = projects;

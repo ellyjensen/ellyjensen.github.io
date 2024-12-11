@@ -27,6 +27,7 @@ html, body {
     justify-content: center;
     gap: 20px;
     margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 #buttons button {
@@ -81,6 +82,27 @@ html, body {
 
 .project-item:hover .description {
     transform: translateY(0);
+}
+
+/* Return to Portfolio Button */
+.return-btn {
+    display: block;
+    text-align: center;
+    margin-top: 100px;
+    padding: 15px 30px;
+    background-color: #555;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.return-btn:hover {
+    background-color: skyblue;
 }
 
 /* Footer */
