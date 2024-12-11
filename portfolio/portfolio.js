@@ -14,13 +14,11 @@ function prevSlide() {
     updateCarousel();
 }
 
-// Function to update the transform of the carousel
 function updateCarousel() {
-    const newTransform = -currentIndex * 100; // Move the carousel by 100% of each slide width
+    const newTransform = -currentIndex * 100; 
     document.querySelector('.carousel').style.transform = `translateX(${newTransform}%)`;
 }
 
-// Attach event listeners for the next and previous buttons
 document.querySelector('.next-btn').addEventListener('click', nextSlide);
 document.querySelector('.prev-btn').addEventListener('click', prevSlide);
 
