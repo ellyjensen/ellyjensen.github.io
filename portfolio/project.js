@@ -16,7 +16,7 @@ function parseData(data) {
         const projectItem = document.createElement("div");
         projectItem.classList.add("project-item");
         projectItem.innerHTML = `
-            <img src="${project.mainimg}" alt="${project.name}">
+            <img src="${project.mainimg}" alt="${project.name}" class="project-image">
             <div class="description">
                 <h3>${project.name}</h3>
                 <p>${project.abstract}</p>
@@ -24,6 +24,16 @@ function parseData(data) {
         `;
         projectItem.dataset.category = project.category.join(", ");
         projectsList.appendChild(projectItem);
+    });
+
+    // Initialize Masonry after items are added
+    imagesLoaded(projectsList, () => {
+        new Masonry('#projects-list', {
+            itemSelector: '.project-item',
+            columnWidth: '.project-item',
+            percentPosition: true,
+            gutter: 30, // Adjust gap between items
+        });
     });
 }
 

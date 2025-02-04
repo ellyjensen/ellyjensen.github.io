@@ -5,26 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Projects</title>
     <link rel="stylesheet" href="project.css">
+    <!-- Masonry.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+
 </head>
 <body>
 
-    <!-- Sorting Buttons -->
-    <div id="buttons">
-        <button value="graphic">Graphic</button>
-        <button value="photography">Photography</button>
-        <button value="Modelling">Modelling</button>
-        <button value="Industrial">Industrial</button>
-    </div>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <a href="index.html" class="name-link">Ellyse Jensen</a>
+        <div id="navbar-links">
+            <a href="about.html" class="nav-link">About Me</a>
+            <div class="dropdown">
+                <button class="dropbtn">Projects</button>
+                <div class="dropdown-content">
+                    <a href="#" class="dropdown-item" value="graphic">Graphic</a>
+                    <a href="#" class="dropdown-item" value="modelling">Modelling</a>
+                    <a href="#" class="dropdown-item" value="physical">Physical</a>
+                    <a href="#" class="dropdown-item" value="photography">Photography</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <!-- Projects Section -->
     <section id="projects">
-        <h2>My Projects</h2>
         <div class="project-grid" id="projects-list">
+            <!-- Dynamically loaded projects will appear here -->
         </div>
-    </div>
-    <!-- Return to Portfolio Button -->
-    <a href="portfolio.html" class="return-btn">Return to Portfolio</a>
-</section>
     </section>
 
     <!-- Footer -->
