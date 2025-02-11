@@ -1,63 +1,82 @@
-let proj;
-fetch('https://raw.githubusercontent.com/ellyjensen/ellyjensen.github.io/main/portfolio/projects.json')
-    .then(response => response.json())
-    .then(projects => {
-        proj = projects;
-        parseData(projects);
-    })
-    .catch(err => {
-        console.log(`error ${err}`);
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    loadProjects();
+    setupFilterListeners();
+});
+
+async function loadProjects() {
+    try {
+        const response = await fetch('projects.json');
+        const data = await response.json();
+        displayProjects(data.projects);
+    } catch (error) {
+        console.error('Error loading projects:', error);
+    }
+}
+
+function displayProjects(projects) {
+    const projectsList = document.getElementById('projects-list');
+    projectsList.innerHTML = ''; // Clear existing projects
+
+    projects.forEach(project => {
+        const projectElement = createProjectElement(project);
+        projectsList.appendChild(projectElement);
     });
 
-function parseData(data) {
-    const projectsList = document.getElementById("projects-list");
+    // Initialize Masonry layout
+    initializeMasonry();
+}
 
-    data.projects.forEach((project, i) => {
-        const projectItem = document.createElement("div");
-        projectItem.classList.add("project-item");
-        projectItem.innerHTML = `
-            <img src="${project.mainimg}" alt="${project.name}" class="project-image">
-            <div class="description">
-                <h3>${project.name}</h3>
-                <p>${project.abstract}</p>
-            </div>
-        `;
-        projectItem.dataset.category = project.category.join(", ");
-        projectsList.appendChild(projectItem);
+function createProjectElement(project) {
+    const projectItem = document.createElement('div');
+    projectItem.className = 'project-item';
+    projectItem.dataset.categories = project.category.join(',');
+
+    projectItem.innerHTML = `
+        <img src="${project.mainimg}" alt="${project.name}" loading="lazy">
+        <div class="description">
+            <h3>${project.name}</h3>
+            <p>${project.abstract}</p>
+        </div>
+    `;
+
+    return projectItem;
+}
+
+function setupFilterListeners() {
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+    
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const category = e.target.getAttribute('value');
+            filterProjects(category);
+        });
+    });
+}
+
+function filterProjects(category) {
+    const projects = document.querySelectorAll('.project-item');
+    
+    projects.forEach(project => {
+        const categories = project.dataset.categories.split(',');
+        const shouldShow = category === 'all' || categories.includes(category);
+        
+        project.style.display = shouldShow ? 'block' : 'none';
     });
 
-    // Initialize Masonry after items are added
-    imagesLoaded(projectsList, () => {
-        new Masonry('#projects-list', {
+    // Reinitialize Masonry after filtering
+    initializeMasonry();
+}
+
+function initializeMasonry() {
+    const grid = document.querySelector('.project-grid');
+    imagesLoaded(grid, () => {
+        new Masonry(grid, {
             itemSelector: '.project-item',
             columnWidth: '.project-item',
             percentPosition: true,
-            gutter: 30, // Adjust gap between items
+            gutter: 32
         });
     });
-}
-
-// Sorting Projects
-for (const button of document.querySelectorAll("#buttons button")) {
-    button.addEventListener("click", e => {
-        sortProjects(e.target.value);
-    });
-}
-
-function sortProjects(button) {
-    const allProjects = document.querySelectorAll(".project-item");
-
-    if (button === "clear") {
-        allProjects.forEach(project => {
-            project.style.display = "block";
-        });
-    } else {
-        allProjects.forEach(project => {
-            if (project.dataset.category.includes(button)) {
-                project.style.display = "block";
-            } else {
-                project.style.display = "none";
-            }
-        });
-    }
 }
