@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowboarding Posture & Trick Analyzer</title>
+    <link rel="stylesheet" href="snowboard.css">
+    <!-- Import MediaPipe Pose directly -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Snowboarding Posture & Trick Analyzer</h1>
+            <p>Upload a video of your snowboarding to get posture feedback and trick detection!</p>
+        </header>
+        
+        <!-- Controls and settings -->
+        <div class="controls">
+            <!-- Video Upload Form -->
+            <form id="uploadForm">
+                <input type="file" id="videoUpload" accept="video/*" required>
+                <button type="submit">Analyze My Technique</button>
+            </form>
+            
+            <!-- Analysis Settings -->
+            <div class="settings-panel">
+                <details>
+                    <summary>Analysis Settings</summary>
+                    <div class="settings-grid">
+                        <div>
+                            <label for="modelComplexity">Model Complexity:</label>
+                            <select id="modelComplexity">
+                                <option value="0">Low (Faster)</option>
+                                <option value="1">Medium</option>
+                                <option value="2" selected>High (More Accurate)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="frameSkip">Analyze every N frames:</label>
+                            <select id="frameSkip">
+                                <option value="1">Every frame (slowest)</option>
+                                <option value="2">Every 2nd frame</option>
+                                <option value="3" selected>Every 3rd frame</option>
+                                <option value="5">Every 5th frame (fastest)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="minConfidence">Minimum Detection Confidence:</label>
+                            <input type="range" id="minConfidence" min="0.5" max="0.9" step="0.05" value="0.7">
+                            <span id="confidenceValue">0.7</span>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </div>
+        
+        <!-- Video and Analysis Container -->
+        <div class="analysis-grid">
+            <!-- Left side: Video and visualization -->
+            <div id="videoContainer">
+                <video id="uploadedVideo" controls style="max-width: 100%; display: none;"></video>
+                <!-- Canvas and loading indicator will be added here by JavaScript -->
+            </div>
+            
+            <!-- Right side: Analysis results -->
+            <div class="analysis-panel">
+                <h2>Analysis Results</h2>
+                <div id="feedbackContainerWrapper">
+                    <!-- Feedback will be added here by JavaScript -->
+                    <p class="placeholder-text">Upload and play a video to see analysis results here</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Instructions Section -->
+        <div class="instructions">
+            <h2>How to Get the Best Analysis</h2>
+            <div class="instruction-grid">
+                <div class="instruction-item">
+                    <div class="instruction-icon">📐</div>
+                    <h3>Proper Angle</h3>
+                    <p>Record video from the side view to capture your full body position</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon">👁️</div>
+                    <h3>Full Visibility</h3>
+                    <p>Ensure your entire body is visible in the frame</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon">💡</div>
+                    <h3>Good Lighting</h3>
+                    <p>Film in well-lit conditions for better detection accuracy</p>
+                </div>
+                <div class="instruction-item">
+                    <div class="instruction-icon">👕</div>
+                    <h3>Contrasting Clothes</h3>
+                    <p>Wear clothing that contrasts with the background</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Will add trick references section here via JavaScript -->
+    </div>
+
+    <footer>
+        <p>Press 'D' key to toggle debug information</p>
+        <p>© 2025 Snowboarding Analyzer</p>
+    </footer>
+
+    <script src="snowboard.js"></script>
+</body>
+</html>
