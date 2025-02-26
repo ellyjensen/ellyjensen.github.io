@@ -567,28 +567,28 @@ function detectTricks() {
     // since we're moving the trick display to the analysis panel
 }
 
-// Get the current detected trick
 function getCurrentTrick() {
-    // First check if we've detected a trick
-    if (detectTailGrab()) {
+    // Give 360 detection highest priority and run it first
+    if (detect360Spin()) {
         return {
-            name: "Trick Detected: Tail Grab",
+            name: "Trick Detected: 360 Spin",
             tips: [
-                "Try to hold the grab longer for better style",
-                "Keep your back straight while grabbing for better control",
-                "Pull your board up higher for a more pronounced grab"
+                "Keep your shoulders aligned with your board during takeoff",
+                "Spot your landing by turning your head to look over your shoulder",
+                "Maintain a compact body position for faster rotation",
+                "Land with knees bent to absorb impact"
             ]
         };
-    } else if (detectMethodGrab()) {
-        return {
-            name: "Trick Detected: Method Grab",
-            tips: [
-                "Extend your back leg more for better board extension",
-                "Try to arch your back more for proper method style",
-                "Hold the grab longer for better technique"
-            ]
-        };
-    } else if (detect180Spin()) {
+    }
+    
+    // Then check other tricks
+    const isNoseGrab = detectNoseGrab();
+    const isTailGrab = detectTailGrab();
+    const isMethodGrab = detectMethodGrab();
+    const is180Spin = detect180Spin();
+    const isCarving = detectCarvingTurn();
+    
+    if (is180Spin) {
         return {
             name: "Trick Detected: 180 Spin",
             tips: [
@@ -598,7 +598,35 @@ function getCurrentTrick() {
                 "Land with your weight centered for stability"
             ]
         };
-    } else if (detectCarvingTurn()) {
+    } else if (isNoseGrab) {
+        return {
+            name: "Trick Detected: Nose Grab",
+            tips: [
+                "Extend your front leg more to bring the nose closer",
+                "Keep your back straight for better balance",
+                "Try to hold the grab longer for style points",
+                "Practice with more pop for a cleaner execution"
+            ]
+        };
+    } else if (isTailGrab) {
+        return {
+            name: "Trick Detected: Tail Grab",
+            tips: [
+                "Try to hold the grab longer for better style",
+                "Keep your back straight while grabbing for better control",
+                "Pull your board up higher for a more pronounced grab"
+            ]
+        };
+    } else if (isMethodGrab) {
+        return {
+            name: "Trick Detected: Method Grab",
+            tips: [
+                "Extend your back leg more for better board extension",
+                "Try to arch your back more for proper method style",
+                "Hold the grab longer for better technique"
+            ]
+        };
+    } else if (isCarving) {
         return {
             name: "Movement Detected: Carving Turn",
             tips: [
@@ -639,6 +667,45 @@ function detectTailGrab() {
     
     // If we see the hand near foot position in majority of recent frames
     return tailGrabFrames >= 3;
+}
+
+
+// Detect nose grab (hand reaching toward front foot)
+function detectNoseGrab() {
+    // Need enough pose history
+    if (poseHistory.length < 5) return false;
+    
+    // Look at recent frames
+    const recentPoses = poseHistory.slice(-5);
+    
+    // Count frames where hand is near foot position
+    let noseGrabFrames = 0;
+    
+    for (const pose of recentPoses) {
+        const landmarks = pose.landmarks;
+        
+        // Front foot landmarks and hands
+        const leftHand = landmarks[15];
+        const rightHand = landmarks[16];
+        const leftFoot = landmarks[31]; 
+        const rightFoot = landmarks[32];
+        
+        // For regular stance: left hand to left foot (which is front)
+        // For goofy stance: right hand to right foot (which is front)
+        const leftHandNearLeftFoot = isPointNear(landmarks[15], landmarks[31], 0.15);
+        const rightHandNearRightFoot = isPointNear(landmarks[16], landmarks[32], 0.15);
+        
+        // Detect which is the front foot based on stance
+        const stance = detectStance(landmarks);
+        
+        if ((stance.includes("Regular") && leftHandNearLeftFoot) || 
+            (stance.includes("Goofy") && rightHandNearRightFoot)) {
+            noseGrabFrames++;
+        }
+    }
+    
+    // If we see the hand near foot position in majority of recent frames
+    return noseGrabFrames >= 3;
 }
 
 // Detect method grab (frontside hand reaching to backside edge)
@@ -693,6 +760,242 @@ function detect180Spin() {
     
     // Check if rotation is close to 180 degrees
     return rotationAmount > 135 && rotationAmount < 225;
+}
+
+// Specialized 360 spin detection that won't be confused with nose grabs or falls
+function detect360Spin() {
+    // Need enough frames for detection
+    if (poseHistory.length < 15) return false;
+    
+    // Calculate total rotation across all frames
+    let totalRotation = 0;
+    let previousAngle = null;
+    let validFrames = 0;
+    let maxAngularVelocity = 0;
+    
+    // First: calculate rotation metrics
+    for (let i = 0; i < poseHistory.length; i++) {
+        const landmarks = poseHistory[i].landmarks;
+        
+        // Only use frames with decent visibility
+        if (landmarks[11].visibility < 0.4 || landmarks[12].visibility < 0.4) {
+            continue;
+        }
+        
+        // Calculate shoulder angle
+        const currentAngle = Math.atan2(
+            landmarks[12].y - landmarks[11].y,
+            landmarks[12].x - landmarks[11].x
+        ) * (180 / Math.PI);
+        
+        validFrames++;
+        
+        if (previousAngle !== null) {
+            // Calculate rotation delta with wrapping
+            let delta = currentAngle - previousAngle;
+            
+            // Normalize to -180 to 180 range
+            if (delta > 180) delta -= 360;
+            if (delta < -180) delta += 360;
+            
+            // Track the maximum angular velocity (rotation speed)
+            if (Math.abs(delta) > maxAngularVelocity) {
+                maxAngularVelocity = Math.abs(delta);
+            }
+            
+            // Accumulate total rotation
+            totalRotation += Math.abs(delta);
+        }
+        
+        previousAngle = currentAngle;
+    }
+    
+    // If we don't have enough valid frames, can't make a determination
+    if (validFrames < 10) return false;
+    
+    // Fast 360s: look for substantial total rotation AND high angular velocity
+    const hasEnoughRotation = totalRotation >= 270; // Allow slightly less than 360 to account for start/end cut off
+    const isHighVelocity = maxAngularVelocity > 15; // Faster per-frame rotation for 360s than 180s
+    
+    // CRITICAL: Add specific checks to distinguish from nose grab
+    // In a nose grab, arms extend but rotation is minimal
+    let isArmExtended = false;
+    let hasConsistentRotation = false;
+    
+    // Count consistent rotation frames vs. arm extension frames
+    let rotationFrames = 0;
+    let armExtensionFrames = 0;
+    
+    // Reset for second scan
+    previousAngle = null;
+    
+    for (let i = 0; i < poseHistory.length; i++) {
+        const landmarks = poseHistory[i].landmarks;
+        
+        // Skip low visibility frames
+        if (landmarks[11].visibility < 0.4 || landmarks[12].visibility < 0.4) {
+            continue;
+        }
+        
+        // Check for arm extension (which could be confused with nose grab)
+        // Look at wrist-to-shoulder distances
+        if (landmarks[15].visibility > 0.4 && landmarks[16].visibility > 0.4) {
+            const leftArmExtension = Math.sqrt(
+                Math.pow(landmarks[15].x - landmarks[11].x, 2) + 
+                Math.pow(landmarks[15].y - landmarks[11].y, 2)
+            );
+            
+            const rightArmExtension = Math.sqrt(
+                Math.pow(landmarks[16].x - landmarks[12].x, 2) + 
+                Math.pow(landmarks[16].y - landmarks[12].y, 2)
+            );
+            
+            // If either arm is significantly extended
+            if (leftArmExtension > 0.2 || rightArmExtension > 0.2) {
+                armExtensionFrames++;
+            }
+        }
+        
+        // Check for rotation
+        const currentAngle = Math.atan2(
+            landmarks[12].y - landmarks[11].y,
+            landmarks[12].x - landmarks[11].x
+        ) * (180 / Math.PI);
+        
+        if (previousAngle !== null) {
+            let delta = currentAngle - previousAngle;
+            if (delta > 180) delta -= 360;
+            if (delta < -180) delta += 360;
+            
+            // Count frames with significant rotation
+            if (Math.abs(delta) > 8) {
+                rotationFrames++;
+            }
+        }
+        
+        previousAngle = currentAngle;
+    }
+    
+    // In a 360, we should see MORE rotation frames than in a nose grab
+    // and extended arms should be accompanied by rotation
+    hasConsistentRotation = rotationFrames >= 8;
+    isArmExtended = armExtensionFrames > validFrames * 0.3; // Allow some extended arm frames
+    
+    // A 360 should have both extended arms AND consistent rotation
+    // This differentiates it from a nose grab which has extended arms but minimal rotation
+    const is360NotNoseGrab = (hasConsistentRotation && isArmExtended) || 
+                             (hasEnoughRotation && rotationFrames > armExtensionFrames);
+    
+    // CRITICAL: Add specific checks to distinguish from falls
+    // In a fall, there's usually a sudden vertical movement and less clean rotation
+    const isSmoothRotation = rotationFrames > validFrames * 0.6; // Most frames should show rotation in a 360
+    
+    // Use ALL of our criteria to identify a true 360
+    return hasEnoughRotation && isHighVelocity && is360NotNoseGrab && isSmoothRotation;
+}
+
+// Helper function to calculate total rotation in a window of frames
+function calculateWindowRotation(frames) {
+    if (frames.length < 5) return 0;
+    
+    let totalRotation = 0;
+    let previousAngle = null;
+    let confidentFrames = 0;
+    let rotationDirection = 0;
+    let consistentDirectionFrames = 0;
+    let maxConsistentDirection = 0;
+    
+    // Define minimum confidence threshold for reliable detection
+    const MIN_VISIBILITY = 0.6;
+    
+    // First pass: determine dominant rotation direction
+    for (let i = 0; i < frames.length; i++) {
+        const landmarks = frames[i].landmarks;
+        
+        // Skip frames with low visibility
+        if (landmarks[11].visibility < MIN_VISIBILITY || landmarks[12].visibility < MIN_VISIBILITY) {
+            continue;
+        }
+        
+        // Calculate shoulder angle
+        const currentAngle = Math.atan2(
+            landmarks[12].y - landmarks[11].y,
+            landmarks[12].x - landmarks[11].x
+        ) * (180 / Math.PI);
+        
+        if (previousAngle !== null) {
+            // Calculate rotation delta, handling 360 degree wrapping
+            let delta = currentAngle - previousAngle;
+            
+            // Normalize to -180 to +180 range
+            if (delta > 180) delta -= 360;
+            if (delta < -180) delta += 360;
+            
+            // Only count significant rotations (filter out minor movements)
+            if (Math.abs(delta) > 3) {
+                const currentDirection = Math.sign(delta);
+                
+                // Track consistent direction
+                if (currentDirection === rotationDirection) {
+                    consistentDirectionFrames++;
+                } else {
+                    // Direction changed, reset counter
+                    if (consistentDirectionFrames > maxConsistentDirection) {
+                        maxConsistentDirection = consistentDirectionFrames;
+                    }
+                    consistentDirectionFrames = 1;
+                    rotationDirection = currentDirection;
+                }
+            }
+        }
+        
+        previousAngle = currentAngle;
+    }
+    
+    // Update max if the last segment was the longest
+    if (consistentDirectionFrames > maxConsistentDirection) {
+        maxConsistentDirection = consistentDirectionFrames;
+    }
+    
+    // If we don't have enough consistent rotation, it's not a 360
+    if (maxConsistentDirection < 10) return 0;
+    
+    // Second pass: calculate total rotation in the dominant direction
+    previousAngle = null;
+    let dominantRotation = 0;
+    
+    for (let i = 0; i < frames.length; i++) {
+        const landmarks = frames[i].landmarks;
+        
+        // Skip frames with low visibility
+        if (landmarks[11].visibility < MIN_VISIBILITY || landmarks[12].visibility < MIN_VISIBILITY) {
+            continue;
+        }
+        
+        // Calculate shoulder angle
+        const currentAngle = Math.atan2(
+            landmarks[12].y - landmarks[11].y,
+            landmarks[12].x - landmarks[11].x
+        ) * (180 / Math.PI);
+        
+        if (previousAngle !== null) {
+            // Calculate rotation delta, handling 360 degree wrapping
+            let delta = currentAngle - previousAngle;
+            
+            // Normalize to -180 to +180 range
+            if (delta > 180) delta -= 360;
+            if (delta < -180) delta += 360;
+            
+            // Add to total rotation (only count movements in dominant direction)
+            if (Math.sign(delta) === Math.sign(rotationDirection) || Math.abs(delta) < 3) {
+                dominantRotation += Math.abs(delta);
+            }
+        }
+        
+        previousAngle = currentAngle;
+    }
+    
+    return dominantRotation;
 }
 
 // Detect carving turn (consistent lateral movement with edge angle)
@@ -897,6 +1200,10 @@ function detectFall() {
     // Need enough history data
     if (verticalPositionHistory.length < 10) return false;
     
+    if (detect360Spin()) {
+        return false; // Don't detect falls during a 360 spin
+    }
+
     // Get recent position data
     const recent = verticalPositionHistory.slice(-5);
     const earlier = verticalPositionHistory.slice(-15, -5);
@@ -1593,7 +1900,56 @@ function addTrickReference() {
     container.appendChild(referencesDiv);
 }
 
+
+// Update the trick reference display to include nose grab
+function updateTrickReference() {
+    // Get the existing trick references section
+    const existingReferences = document.querySelector('.trick-references');
+    
+    if (existingReferences) {
+        // Find the existing details for grabs
+        const existingDetails = existingReferences.querySelectorAll('details');
+        
+        // Find where to insert the nose grab (after tail grab)
+        let tailGrabDetail = null;
+        for (const detail of existingDetails) {
+            const summary = detail.querySelector('summary');
+            if (summary && summary.textContent.includes('Tail Grab')) {
+                tailGrabDetail = detail;
+                break;
+            }
+        }
+        
+        if (tailGrabDetail) {
+            // Create new details element for nose grab
+            const noseGrabDetail = document.createElement('details');
+            noseGrabDetail.innerHTML = `
+                <summary>Nose Grab</summary>
+                <p>Grab the nose of your board with your front hand while in the air. This trick requires good control and flexibility.</p>
+            `;
+            
+            // Insert after tail grab
+            tailGrabDetail.parentNode.insertBefore(noseGrabDetail, tailGrabDetail.nextSibling);
+        }
+    }
+}
+
+// Modify the window load event handler to update the trick references
+const originalAddTrickReference = addTrickReference;
+addTrickReference = function() {
+    originalAddTrickReference();
+    updateTrickReference();
+};
+
+// If the trick reference section is already present, update it now
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.trick-references')) {
+        updateTrickReference();
+    }
+});
+
 // Call to add the trick reference section
 window.addEventListener('load', function() {
     addTrickReference();
+
 });
